@@ -1,0 +1,395 @@
+  @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  body{
+    color: #fff;
+    overflow: hidden;
+  }
+  .header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding:20px 10%;
+    width: 100%;
+    background:transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
+  .logo{
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    font-weight: 700;
+    filter: drop-shadow(0 0 5px #09001d);
+  }
+  .navbar a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 23px;
+    margin-right: 30px;
+    font-weight: 500;
+     transition: .3s;
+  }
+
+  .navbar a:hover,
+  .navbar a.active{
+    color:#8a6b6b;
+  }
+  .main{
+    min-height: 100vh;
+    background: url('bg-3.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: .3s ease;
+  }
+  .main.active{
+    filter: blur(15px);
+  }
+  .container{
+    display: flex;
+    height: 100vh;
+    width: 200%;
+  }
+  .home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    left: -50%;
+  }
+  .home-content{
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-content h1{
+    font-size: 80px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0 0 0 .3);
+    color: #8a6b6b;
+  }
+  .home-content p{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 10px;
+    text-shadow: 0 0 10px rgba(0 0 0 .3);
+    color: #8a6b6b;
+  }
+  .home-content .start-btn{
+    margin-top: 20px;
+    width: 190px;
+    height: 55px;
+    background: #8a6b6b;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s;
+  }
+  .home-content .start-btn:hover{
+    background: transparent;
+    box-shadow: none;
+    color: #8a6b6b;
+    border: 2px solid #8a6b6b;
+  }
+  .pop-up{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(.9);
+    width: 500px;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+  }
+
+  .pop-up.active{
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+    pointer-events: auto;
+  }
+.pop-up h2{
+    font-size: 30px;
+    color: #8a6b6b;
+    margin-bottom: 10px;
+}
+.pop-up .info{
+    display:inline-block;
+    color: #333;
+    font-weight: 500;
+    margin: 4px 0;
+    font-size: 16px;
+}
+.pop-up .btn-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #999;
+    margin-top: 10px;
+    padding: 15px 0 7px;
+}
+.pop-up .btn-group .info-btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 135px;
+    height: 45px;
+    background: #8a6b6b;
+    color: #fff;
+    outline: none;
+    border-radius: 6px;
+    border: 2px solid #8a6b6b;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow:  0 0 10px rgba(0 0 0 .3);
+    transition: .5s;
+}
+.pop-up .btn-group .info-btn:nth-child(1){
+    background: transparent;
+    color: #8a6b6b;
+}
+.pop-up .btn-group .info-btn:nth-child(1):hover{
+    background: #8a6b6b;
+    color: #fff;
+}
+.pop-up .btn-group .info-btn:nth-child(2):hover{
+    background: #604a4a;
+    border-color: #604a4a;
+}
+.quiz-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: #09001d;
+    position: relative;
+    left: -50%;
+    /* left: 0; */
+    transition: .8s ease-in-out;
+    transition-delay: .25s;
+    z-index:100;
+}
+.quiz-section.active{
+  left:0;
+}
+.quiz-section .quiz-box{
+  position: relative;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  border: 2px solid #564242;
+  border-radius: 6px;
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.9);
+  transition: .3s ease;
+  transition-delay: 0s;
+}
+.quiz-section .quiz-box.active{
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  
+}
+.quiz-box h1{
+  text-align: center;
+  font-size: 32px;
+  background: linear-gradient(45deg, transparent,#675353,transparent);
+  border-radius: 6px;
+}
+.quiz-box .quiz-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 2px solid #675353;
+  margin-bottom: 30px;
+}
+.quiz-header span{
+     font-size: 18px;
+     font-weight: 500;
+}
+.quiz-header .quiz-score{
+     background: #675353;
+     border-radius: 3px;
+     padding: 7px;
+}
+.quiz-box .question-text{
+  font-size: 28px;
+  font-weight: 600;
+}
+.option-list .option{
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  font-size: 17px;
+  margin: 15px 0;
+  cursor: pointer;
+  border: 2px solid rgba(255,255, 255, .2);
+  border-radius: 3px;
+  transition: .3s;
+}
+.option-list .option:hover{
+  background: rgba(255,255, 255, .1);
+  border: 2px solid rgba(255,255, 255, .1);
+  border-radius: 3px;
+}
+.option-list .option.correct{
+  background: #09001d;
+  color: #00a63d;
+  border-color: #00a63d;
+}
+.option-list .option.incorrect{
+  background: #09001d;
+  color: #a60045;
+  border-color: #a60045;
+}
+.option-list .option.disabled{
+  pointer-events: none;
+}
+.quiz-box .quiz-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #675353;
+  padding-top: 25px;
+  margin-top: 20px;
+  
+}
+.quiz-footer .question-total{
+  font-weight: 600;
+  font-size: 17px;
+}
+.quiz-footer .next{
+  width: 100px;
+  height: 45px;
+  background: rgba(255,255, 255, .1);
+  border: 2px solid rgba(255,255, 255, .1);
+  color: rgba(255,255, 255, .3);
+  border-radius: 6px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: .3s;
+  pointer-events: none;
+}
+.quiz-footer .next:hover{
+  background: #675353;
+  border-color:#675353;
+}
+.quiz-footer .next.active{
+   pointer-events: auto;
+   background: #675353;
+   color: #fff;
+   border-color: #675353;
+}
+.quiz-section .result-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(.9);
+  background: transparent;
+  border: 2px solid #604a4a;
+  border-radius: 6px;
+  width: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+}
+
+.result-box.active{
+  opacity:1;
+  pointer-events: auto;
+  transform: translate(-50%,-50%) scale(1);
+
+}.result-box h1{
+  font-size: 50px;
+}
+.result-box .percentage-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 20px 0 40px;
+}
+.percentage-container .circular-progress{
+  position: relative;
+  height: 250px;
+  width: 250px;
+  background: conic-gradient(#604a4a 3.6deg, rgba(255,255,255,.1) 0deg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.percentage-container .circular-progress::before{
+  content: '';
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: #09001d;
+}
+.circular-progress .progress-value{
+  position: relative;
+  font-size: 45px;
+  font-weight: 500;
+}
+.percentage-container .score-text{
+  margin-top: 20px;
+  font-size: 26px;
+  font-weight: 400;
+}
+.buttons{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.buttons button{
+  width: 130px;
+  height: 47px;
+  background: #604a4a;
+  border: 2px solid #604a4a;
+  border-radius: 6px;
+  color: #fff;
+   font-size: 16px;
+   font-weight: 600;
+   cursor: pointer;
+   margin-bottom: 20px;
+   transition: .5s;
+}
+.buttons button:nth-child(2){
+  background: transparent;
+  color: #604a4a;
+}
+.buttons button:nth-child(2):hover{
+  background: #604a4a;
+  color: #fff;
+}
+.buttons button:nth-child(1):hover{
+  background: #564242;
+  border-color: #564242;
+}
